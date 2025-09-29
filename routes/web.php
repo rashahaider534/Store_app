@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
@@ -29,6 +30,10 @@ Route::get('/review',[ReviewController::class,'review']);
 Route::post('/addreview',[ReviewController::class,'addreview']);
 Route::post('/search',[ShopController::class,'search']);
 Route::get('/productsTable',[ProductController::class,'productsTable']);
+
+Route::get('/cart',[CartController::class,'index'])->name('cart')->middleware('auth');
+Route::post('/add-to-cart/{id}', [CartController::class, 'store']);
+
 Auth::routes(['register'=>true]);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
