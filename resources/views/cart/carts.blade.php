@@ -20,7 +20,7 @@
 							<tbody>
                                 @foreach ($Productscart as $product )
 								<tr class="table-body-row">
-									<td class="product-remove"><a href="#"><i class="far fa-window-close"></i></a></td>
+									<td class="product-remove"><a href="{{ route('cartproduct_remove', $product->product->id) }}"><i class="far fa-window-close"></i></a></td>
 									<td class="product-image"><img src={{ asset($product->product->image) }} alt=""></td>
 									<td class="product-name">{{$product->product->name}}</td>
 									<td class="product-price">{{$product->product->price}}</td>
@@ -48,13 +48,14 @@
 
 								<tr class="total-data">
 									<td><strong>Total: </strong></td>
-									<td>$545</td>
+                                    
+									<td>$</td>
 								</tr>
 							</tbody>
 						</table>
 						<div class="cart-buttons">
 
-							<a href="checkout.html" class="boxed-btn black">Check Out</a>
+							<a href="{{url('/checkout')}}" class="boxed-btn black">Check Out</a>
 						</div>
 					</div>
 
@@ -63,5 +64,5 @@
 			</div>
 		</div>
 	</div>
-{{--  --}}
+
  @endsection

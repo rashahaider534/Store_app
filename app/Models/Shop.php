@@ -9,4 +9,8 @@ class Shop extends Model
 {
     use HasFactory;
     protected $fillable=['name','image','description'];
+    public function product()
+    {
+        return $this->hasMany(Product::class,'shop_id');
+    }
 }

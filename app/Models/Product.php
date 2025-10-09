@@ -13,5 +13,17 @@ class Product extends Model
     {
         return $this->belongsTo(Cart::class,'product_id');
     }
+    public function Image()
+    {
+        return $this->hasMany(Image::class,'product_id');
+    }
+     public function shop()
+    {
+        return $this->belongsTo(Shop::class,'shop_id');
+    }
+    public function orderdetail()
+    {
+        return $this->belongsTo(OrderDetail::class,'product_id');
+    }
 
 }
